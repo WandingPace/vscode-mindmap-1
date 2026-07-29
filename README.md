@@ -1,34 +1,53 @@
-# Mind Map Tool
+# Mind Map Tool (GitHub 图床增强版)
 
-[中文文档](https://github.com/oorzc/vscode-mindmap/blob/main/README.zh-CN.md)
-[Download Link](https://marketplace.visualstudio.com/items?itemName=oorzc.mind-map)
+> Fork 自 [oorzc/vscode-mindmap](https://github.com/oorzc/vscode-mindmap)（MIT License），在原版基础上集成了 GitHub 图床直传、内容去重、删除节点同步删远端等功能。
 
-##  ❓How to use
+[中文文档](README.zh-CN.md)
 
-Just create a file with the suffix km or xmind directly.
+## ❓ 如何使用
 
-## ✨ Plugin Features
+直接创建后缀为 km 或 xmind 的文件即可打开思维导图。
 
-1. Multilingual support(简体中文,繁體中文,English,German,Spanish,French,Italian,Czech,Hungarian,Japanese,Korean,Polish,Portuguese,Russia)
-2. Directly open km, xmind documents
-3. Support exporting high definition pictures (configure the export picture zoom factor and background color in the plug-in settings)
-4. Export km, xmind, markdown, svg, txt, json, png files
-5. Import km, xmind, markdown, txt, json files
-6. Customizable image upload interface (if not specified, local images will be used)
+## ✨ 插件功能
 
-## 📖 Interface Display
+1. 多语言支持（简体中文、繁體中文、English、German、Spanish、French、Italian、Czech、Hungarian、Japanese、Korean、Polish、Portuguese、Russia）
+2. 直接打开 km、xmind 文档
+3. 支持导出高清图片（插件设置中配置缩放倍数、背景色）
+4. 导出 km、xmind、markdown、svg、txt、json、png 文件
+5. 导入 km、xmind、markdown、txt、json 文件
+6. **GitHub 图床直传**（本 fork 新增）：图片直接上传到 GitHub 仓库，返回 jsdelivr CDN 链接，不依赖额外 HTTP 上传服务
+7. **内容去重**（本 fork 新增）：cyrb53 内容 hash 做文件名，内容相同自动复用，不重复存储
+8. **删除节点同步删远端**（本 fork 新增）：删除含图床图片的节点时弹窗确认，批量删除远端图床对应图片
+9. **图片对话框删远端**（本 fork 新增）：图片选项里一键删除当前图片对应的远端图床文件
+10. **Ctrl+V 粘贴上传**（增强）：复制图片直接粘贴，自动上传 GitHub 图床并插入节点
+
+## 🔧 GitHub 图床配置（本 fork 新增）
+
+在 VSCode settings.json 配置（不配 token 则图片走本地 base64，即原版行为）：
+
+```json
+"MindMap.githubToken": "ghp_你的GitHub PAT",
+"MindMap.githubOwner": "WandingPace",
+"MindMap.githubRepo": "my-images",
+"MindMap.githubBranch": "main",
+"MindMap.githubPath": "images/kityminder",
+"MindMap.githubCdn": "jsdelivr"
+```
+
+- `githubToken`：GitHub Personal Access Token（classic 勾 repo，或 fine-grained 选目标仓库 Contents 读写权限）
+- `githubOwner`/`githubRepo`/`githubBranch`/`githubPath`：图床仓库配置（有默认值）
+- `githubCdn`：`jsdelivr`（CDN 加速，有缓存延迟）或 `raw`（直连 GitHub raw）
+
+## 📖 界面展示
 
 ![](https://cdn.jsdelivr.net/gh/oorzc/public_img@main/img/2023%2F12%2F15%2F20231215115936.png)
 ![](https://cdn.jsdelivr.net/gh/oorzc/public_img@main/img/2023%2F12%2F15%2F20231215120032.png)
 
-## Other Issues
+## 致谢
 
-1. upload debug
+- [oorzc/vscode-mindmap](https://github.com/oorzc/vscode-mindmap) —— 本 fork 的直接上游（MIT License, Copyright (c) 2023 oorzc）
+- [souche/vscode-mindmap](https://github.com/souche/vscode-mindmap) —— 最初原版
 
-![](https://cdn.jsdelivr.net/gh/oorzc/public_img@main/img/2023%2F12%2F15%2F20231215124302.png)
+## License
 
-2. There is no uploaded image on the exported image, and the image needs cross-domain support
-
-## Thanks
-
-[vscode-mindmap](https://github.com/souche/vscode-mindmap)
+MIT License（Copyright (c) 2023 oorzc）。本 fork 保留原版权声明，新增代码同样以 MIT 发布。
