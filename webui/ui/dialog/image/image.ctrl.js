@@ -124,6 +124,23 @@ angular.module("kityminderEditor").controller("image.ctrl", [
 			editor.receiver.selectAll();
 		};
 
+		// === GitHub 图床：判断 + 删除远端图片 ===
+		$scope.isGithubImg = function (url) {
+			return !!url && /cdn\.jsdelivr\.net\/gh\//.test(url);
+		};
+		$scope.deleteRemote = function () {
+			if (!$scope.data.url) return;
+			server.deleteImage($scope.data.url).then(function (r) {
+				if (r.ok) {
+					$scope.data.url = "";
+					window._ghAlert && window._ghAlert("远端图片已删除");
+					$scope.$apply();
+				} else {
+					window._ghAlert && window._ghAlert("删除失败: " + r.msg);
+				}
+			});
+		};
+
 		function getImageData() {
 			var key = $scope.data.searchKeyword2;
 			var currentTime = new Date();

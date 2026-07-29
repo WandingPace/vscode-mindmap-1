@@ -160,7 +160,11 @@ define(function(require, exports, module) {
                                     var resp = json.data;
                                     if (resp.errno === 0) {
                                         minder.execCommand('image', resp.data.url);
+                                    } else {
+                                        window._ghAlert && window._ghAlert("图片上传失败: " + (resp.msg || "未知错误"));
                                     }
+                                }, function (err) {
+                                    window._ghAlert && window._ghAlert("图片上传异常: " + (err && err.status ? err.status : err));
                                 });
                         }
                         else {

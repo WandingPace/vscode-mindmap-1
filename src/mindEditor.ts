@@ -77,11 +77,24 @@ export class MindEditorProvider implements vscode.CustomEditorProvider {
 
 		let mindmapConfig: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("MindMap")
 		const uploadUrl = mindmapConfig.get<string>('uploadUrl', '');
+		const githubToken = mindmapConfig.get<string>('githubToken', '');
+		const githubOwner = mindmapConfig.get<string>('githubOwner', 'WandingPace');
+		const githubRepo = mindmapConfig.get<string>('githubRepo', 'my-images');
+		const githubBranch = mindmapConfig.get<string>('githubBranch', 'main');
+		const githubPath = mindmapConfig.get<string>('githubPath', 'images/kityminder');
+		const githubCdn = mindmapConfig.get<string>('githubCdn', 'jsdelivr');
 		const lang = mindmapConfig.get<string>('language') || vscode.env.language;
 		//设置默认语言
 		html = html.replace(/\$\{vscode_lang\}/g, lang);
 		//设置上传地址
 		html = html.replace(/\$\{vscode_upload_url\}/g, uploadUrl);
+		//GitHub 图床配置注入
+		html = html.replace(/\$\{vscode_github_token\}/g, githubToken);
+		html = html.replace(/\$\{vscode_github_owner\}/g, githubOwner);
+		html = html.replace(/\$\{vscode_github_repo\}/g, githubRepo);
+		html = html.replace(/\$\{vscode_github_branch\}/g, githubBranch);
+		html = html.replace(/\$\{vscode_github_path\}/g, githubPath);
+		html = html.replace(/\$\{vscode_github_cdn\}/g, githubCdn);
 
 		const fileName = document.uri.fsPath;
 		const extName = path.extname(fileName);

@@ -28,9 +28,21 @@
         window.vscode = acquireVsCodeApi();
         var lang = "${vscode_lang}";
         var upload_url = "${vscode_upload_url}";
+        var github_token = "${vscode_github_token}";
+        var github_owner = "${vscode_github_owner}";
+        var github_repo = "${vscode_github_repo}";
+        var github_branch = "${vscode_github_branch}";
+        var github_path = "${vscode_github_path}";
+        var github_cdn = "${vscode_github_cdn}";
         var obj = {
             lang,
-            upload_url
+            upload_url,
+            github_token,
+            github_owner,
+            github_repo,
+            github_branch,
+            github_path,
+            github_cdn
         }
         window.vscode.setState(obj);
     </script>
@@ -62,7 +74,7 @@
 <script src="${vscode}/bower_components/js-base64/base64.min.js"></script>
 <!-- endbower -->
 
-<script src="${vscode}/dist/kityminder.editor.min.js"></script>
+<script src="${vscode}/dist/kityminder.editor.js"></script>
 
 <script src="${vscode}/main.js"></script>
 

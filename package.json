@@ -1,144 +1,181 @@
 {
-    "name": "mind-map",
-    "displayName": "vscode mindmap",
-    "icon": "resources/icon.png",
-    "description": "mindmap for vscode",
-    "version": "1.0.6",
-    "publisher": "oorzcc",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/oorzc/vscode-mindmap.git"
-    },
-    "engines": {
-        "vscode": "^1.67.0"
-    },
-    "keywords": [
-        "naotu",
-        "脑图",
-        "导图",
-        "思维脑图",
-        "思维导图",
-        "百度脑图",
-        "km",
-        "mind",
-        "xmind"
-    ],
-    "categories": [
-        "Other"
-    ],
-    "activationEvents": [
-        "onCustomEditor:vscode-mindmap.editor"
-    ],
-    "main": "./dist/extension",
-    "contributes": {
-        "customEditors": [
-            {
-                "viewType": "vscode-mindmap.editor",
-                "displayName": "draw io editor",
-                "selector": [
-                    {
-                        "filenamePattern": "*.km"
-                    },
-                    {
-                        "filenamePattern": "*.xmind"
-                    }
-                ],
-                "priority": "default"
-            }
-        ],
-        "configuration": {
-            "type": "object",
-            "title": "MindMap",
-            "properties": {
-                "MindMap.language": {
-                    "type": "string",
-                    "enum": [
-                        "zh-cn",
-                        "zh-tw",
-                        "en",
-                        "de",
-                        "es",
-                        "fr",
-                        "it",
-                        "cs",
-                        "hu",
-                        "ja",
-                        "ko",
-                        "pl",
-                        "pt",
-                        "ru"
-                    ],
-                    "enumDescriptions": [
-                        "简体中文",
-                        "繁體中文",
-                        "English",
-                        "German",
-                        "Spanish",
-                        "French",
-                        "Italian",
-                        "Czech",
-                        "Hungarian",
-                        "Japanese",
-                        "Korean",
-                        "Polish",
-                        "Portuguese",
-                        "Russian"
-                    ],
-                    "description": "%mindmap.language%"
-                },
-                "MindMap.uploadUrl": {
-                    "type": "string",
-                    "default": "",
-                    "description": "%mindmap.uploadUrl%",
-                    "markdownDescription": "%mindmap.markdownDescription%"
-                },
-                "MindMap.imageScaleSize": {
-                    "type": "number",
-                    "minimum": 0.1,
-                    "maximum": 10,
-                    "default": 2,
-                    "description": "%mindmap.imageScaleSize%"
-                },
-                "MindMap.imageBackgroundColor": {
-                    "type": "string",
-                    "default": "#ffffff",
-                    "description": "%mindmap.imageBackgroundColor%"
-                }
-            }
-        }
-    },
-    "scripts": {
-        "build": "npm run package && vsce package",
-        "compile": "tsc -watch -p ./",
-        "watch": "webpack --watch --mode development",
-        "package": "webpack --mode production --devtool hidden-source-map",
-        "pretest": "npm run compile && npm run lint",
-        "lint": "eslint src --ext ts",
-        "commit": "npm run package && git add . && git commit -m 'up'",
-        "major": "npm run commit && vsce publish major",
-        "minor": "npm run commit && vsce publish minor",
-        "patch": "npm run commit && vsce publish patch",
-        "web": "ovsx publish"
-    },
-    "dependencies": {
-        "@resvg/resvg-js": "^2.6.0",
-        "base64-js": "^1.5.1",
-        "jszip": "^3.6.0",
-        "request": "^2.88.2",
-        "string-replace-async": "^3.0.2",
-        "xmind": "^2.2.33",
-        "xml-formatter": "^3.6.0",
-        "xml-js": "^1.6.11"
-    },
-    "devDependencies": {
-        "@types/mocha": "^2.2.42",
-        "@types/node": "16.x",
-        "@types/vscode": "^1.67.0",
-        "terser-webpack-plugin": "^3.0.2",
-        "ts-loader": "^9.2.5",
-        "tslint": "^5.8.0",
-        "typescript": "^4.4.4",
-        "webpack": "^5.52.1",
-        "webpack-cli": "^4.8.0"
-    }
+	"name": "mind-map",
+	"displayName": "vscode mindmap",
+	"icon": "resources/icon.png",
+	"description": "mindmap for vscode",
+	"version": "1.0.6",
+	"publisher": "oorzc",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/oorzc/vscode-mindmap.git"
+	},
+	"engines": {
+		"vscode": "^1.67.0"
+	},
+	"keywords": [
+		"naotu",
+		"脑图",
+		"导图",
+		"思维脑图",
+		"思维导图",
+		"百度脑图",
+		"km",
+		"mind",
+		"xmind"
+	],
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCustomEditor:vscode-mindmap.editor"
+	],
+	"main": "./dist/extension",
+	"contributes": {
+		"customEditors": [
+			{
+				"viewType": "vscode-mindmap.editor",
+				"displayName": "draw io editor",
+				"selector": [
+					{
+						"filenamePattern": "*.km"
+					},
+					{
+						"filenamePattern": "*.xmind"
+					}
+				],
+				"priority": "default"
+			}
+		],
+		"configuration": {
+			"type": "object",
+			"title": "MindMap",
+			"properties": {
+				"MindMap.language": {
+					"type": "string",
+					"enum": [
+						"zh-cn",
+						"zh-tw",
+						"en",
+						"de",
+						"es",
+						"fr",
+						"it",
+						"cs",
+						"hu",
+						"ja",
+						"ko",
+						"pl",
+						"pt",
+						"ru"
+					],
+					"enumDescriptions": [
+						"简体中文",
+						"繁體中文",
+						"English",
+						"German",
+						"Spanish",
+						"French",
+						"Italian",
+						"Czech",
+						"Hungarian",
+						"Japanese",
+						"Korean",
+						"Polish",
+						"Portuguese",
+						"Russian"
+					],
+					"description": "%mindmap.language%"
+				},
+				"MindMap.uploadUrl": {
+					"type": "string",
+					"default": "",
+					"description": "%mindmap.uploadUrl%",
+					"markdownDescription": "%mindmap.markdownDescription%"
+				},
+				"MindMap.imageScaleSize": {
+					"type": "number",
+					"minimum": 0.1,
+					"maximum": 10,
+					"default": 2,
+					"description": "%mindmap.imageScaleSize%"
+				},
+			"MindMap.imageBackgroundColor": {
+				"type": "string",
+				"default": "#ffffff",
+				"description": "%mindmap.imageBackgroundColor%"
+			},
+			"MindMap.githubToken": {
+				"type": "string",
+				"default": "",
+				"description": "GitHub 图床 token",
+				"markdownDescription": "GitHub personal access token（需 repo 权限），用于直接上传图片到 GitHub 仓库。留空则图片走本地 base64。"
+			},
+			"MindMap.githubOwner": {
+				"type": "string",
+				"default": "WandingPace",
+				"description": "GitHub 图床仓库 owner"
+			},
+			"MindMap.githubRepo": {
+				"type": "string",
+				"default": "my-images",
+				"description": "GitHub 图床仓库名"
+			},
+			"MindMap.githubBranch": {
+				"type": "string",
+				"default": "main",
+				"description": "GitHub 图床仓库分支"
+			},
+			"MindMap.githubPath": {
+				"type": "string",
+				"default": "images/kityminder",
+				"description": "GitHub 图床图片存放路径"
+			},
+			"MindMap.githubCdn": {
+				"type": "string",
+				"enum": ["jsdelivr", "raw"],
+				"default": "jsdelivr",
+				"description": "CDN 类型：jsdelivr 或 raw"
+			}
+			}
+		}
+	},
+	"scripts": {
+		"build": "npm run package && vsce package",
+		"compile": "tsc -watch -p ./",
+		"watch": "webpack --watch --mode development",
+		"package": "webpack --mode production --devtool hidden-source-map",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"commit": "npm run package && git add . && git commit -m 'up'",
+		"major": "npm run commit && vsce publish major",
+		"minor": "npm run commit && vsce publish minor",
+		"patch": "npm run commit && vsce publish patch",
+		"web": "ovsx publish"
+	},
+	"dependencies": {
+		"@resvg/resvg-js": "^2.6.0",
+		"base64-js": "^1.5.1",
+		"jszip": "^3.6.0",
+		"request": "^2.88.2",
+		"string-replace-async": "^3.0.2",
+		"xmind": "^2.2.33",
+		"xml-formatter": "^3.6.0",
+		"xml-js": "^1.6.11"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "16.x",
+		"@types/vscode": "^1.67.0",
+		"terser-webpack-plugin": "^3.0.2",
+		"ts-loader": "^9.2.5",
+		"tslint": "^5.8.0",
+		"typescript": "^4.4.4",
+		"webpack": "^5.52.1",
+		"webpack-cli": "^4.8.0"
+	},
+	"__metadata": {
+		"installedTimestamp": 1785311327493,
+		"targetPlatform": "undefined",
+		"size": 19262014
+	}
 }

@@ -17,6 +17,14 @@ angular.module("kityminderEditor").provider("config", function () {
 
 		// 图片上传接口
 		imageUpload: "",
+
+		// GitHub 图床配置
+		githubToken: "",
+		githubOwner: "WandingPace",
+		githubRepo: "my-images",
+		githubBranch: "main",
+		githubPath: "images/kityminder",
+		githubCdn: "jsdelivr",
 	};
 
 	this.set = function (key, value) {

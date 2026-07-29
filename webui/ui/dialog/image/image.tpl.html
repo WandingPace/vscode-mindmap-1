@@ -65,5 +65,6 @@
 </div>
 <div class="modal-footer">
     <button class="btn btn-primary" ng-click="ok()">{{ 'ok' | lang: 'ui/dialog/image'}}</button>
+    <button class="btn btn-danger" ng-if="isGithubImg(data.url)" ng-click="deleteRemote()">删除远端图片</button>
     <button class="btn btn-warning" ng-click="cancel()">{{ 'cancel' | lang: 'ui/dialog/image'}}</button>
 </div>
