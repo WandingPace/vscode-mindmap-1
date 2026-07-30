@@ -1,6 +1,6 @@
 {
-	"name": "mind-map-github",
-	"displayName": "Mind Map GitHub",
+	"name": "mindmap-github-image-bed",
+	"displayName": "Mind Map GitHub Image Bed",
 	"icon": "resources/icon.png",
 	"description": "mindmap for vscode",
 	"version": "1.0.7",
