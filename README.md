@@ -27,10 +27,10 @@
 
 ```json
 "MindMap.githubToken": "ghp_你的GitHub PAT",
-"MindMap.githubOwner": "WandingPace",
-"MindMap.githubRepo": "my-images",
+"MindMap.githubOwner": "你的GitHub用户名",
+"MindMap.githubRepo": "你的图床仓库名",
 "MindMap.githubBranch": "main",
-"MindMap.githubPath": "images/kityminder",
+"MindMap.githubPath": "images/你的路径",
 "MindMap.githubCdn": "jsdelivr"
 ```
 

@@ -20,10 +20,10 @@ angular.module("kityminderEditor").provider("config", function () {
 
 		// GitHub 图床配置
 		githubToken: "",
-		githubOwner: "WandingPace",
-		githubRepo: "my-images",
+		githubOwner: "",
+		githubRepo: "",
 		githubBranch: "main",
-		githubPath: "images/kityminder",
+		githubPath: "",
 		githubCdn: "jsdelivr",
 	};
 

@@ -78,10 +78,10 @@ export class MindEditorProvider implements vscode.CustomEditorProvider {
 		let mindmapConfig: vscode.WorkspaceConfiguration = vscode.workspace.getConfiguration("MindMap")
 		const uploadUrl = mindmapConfig.get<string>('uploadUrl', '');
 		const githubToken = mindmapConfig.get<string>('githubToken', '');
-		const githubOwner = mindmapConfig.get<string>('githubOwner', 'WandingPace');
-		const githubRepo = mindmapConfig.get<string>('githubRepo', 'my-images');
+		const githubOwner = mindmapConfig.get<string>('githubOwner', '');
+		const githubRepo = mindmapConfig.get<string>('githubRepo', '');
 		const githubBranch = mindmapConfig.get<string>('githubBranch', 'main');
-		const githubPath = mindmapConfig.get<string>('githubPath', 'images/kityminder');
+		const githubPath = mindmapConfig.get<string>('githubPath', '');
 		const githubCdn = mindmapConfig.get<string>('githubCdn', 'jsdelivr');
 		const lang = mindmapConfig.get<string>('language') || vscode.env.language;
 		//设置默认语言

@@ -112,12 +112,12 @@
 			},
 			"MindMap.githubOwner": {
 				"type": "string",
-				"default": "WandingPace",
+				"default": "",
 				"description": "GitHub 图床仓库 owner"
 			},
 			"MindMap.githubRepo": {
 				"type": "string",
-				"default": "my-images",
+				"default": "",
 				"description": "GitHub 图床仓库名"
 			},
 			"MindMap.githubBranch": {
@@ -127,7 +127,7 @@
 			},
 			"MindMap.githubPath": {
 				"type": "string",
-				"default": "images/kityminder",
+				"default": "",
 				"description": "GitHub 图床图片存放路径"
 			},
 			"MindMap.githubCdn": {

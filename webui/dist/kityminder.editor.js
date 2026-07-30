@@ -5543,10 +5543,10 @@ angular.module("kityminderEditor").provider("config", function () {
 		githubToken: "",
 
 		// GitHub 图床仓库配置
-		githubOwner: "WandingPace",
-		githubRepo: "my-images",
+		githubOwner: "",
+		githubRepo: "",
 		githubBranch: "main",
-		githubPath: "images/kityminder",
+		githubPath: "",
 		githubCdn: "jsdelivr",
 	};
 
